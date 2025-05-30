@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>متجر منتجات منزلية</title>
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      direction: rtl;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+    .product {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 280px;
+      margin: 10px;
+      padding: 15px;
+      text-align: center;
+    }
+    .product img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .product h2 {
+      font-size: 20px;
+      color: #444;
+    }
+    .product p {
+      color: #666;
+    }
+    .btn {
+      background-color: #ff9800;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .btn:hover {
+      background-color: #e68a00;
+    }
+    .cart {
+      background-color: white;
+      padding: 15px;
+      margin-top: 30px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>منتجاتنا</h1>
+    <div class="products">
+      <div class="product">
+        <img src="https://cdn.pixabay.com/photo/2020/12/10/10/39/air-fryer-5818626_1280.jpg" alt="قلاية هوائية">
+        <h2>قلاية هوائية</h2>
+        <p>صحية وسريعة بدون زيت</p>
+        <button class="btn" onclick="addToCart('قلاية هوائية')">أضف للسلة</button>
+      </div>
+      <div class="product">
+        <img src="https://cdn.pixabay.com/photo/2016/12/27/15/46/coffee-1936476_1280.jpg" alt="ماكينة قهوة">
+        <h2>ماكينة قهوة</h2>
+        <p>تحضير سريع واحترافي للقهوة</p>
+        <button class="btn" onclick="addToCart('ماكينة قهوة')">أضف للسلة</button>
+      </div>
+      <div class="product">
+        <img src="https://cdn.pixabay.com/photo/2020/05/17/15/05/microwave-5180641_1280.jpg" alt="مايكرويف">
+        <h2>مايكرويف</h2>
+        <p>تسخين سريع وسهل</p>
+        <button class="btn" onclick="addToCart('مايكرويف')">أضف للسلة</button>
+      </div>
+    </div>
+
+    <div class="cart">
+      <h2>السلة:</h2>
+      <ul id="cartList"></ul>
+    </div>
+  </div>
+
+  <script>
+    const cartList = document.getElementById("cartList");
+    function addToCart(product) {
+      const li = document.createElement("li");
+      li.textContent = product;
+      cartList.appendChild(li);
+    }
+  </script>
+</body>
+</html>
