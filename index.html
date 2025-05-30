@@ -4,61 +4,106 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>منتج واحد - خلاط محمول</title>
+  <title>متجر منتجات منزلية</title>
   <style>
     body {
       font-family: 'Cairo', sans-serif;
-      background-color: #f8f8f8;
+      background-color: #f4f4f4;
       margin: 0;
       padding: 0;
-      text-align: center;
       direction: rtl;
     }
     .container {
-      max-width: 600px;
-      margin: 50px auto;
-      background-color: white;
+      max-width: 900px;
+      margin: auto;
       padding: 20px;
-      border-radius: 16px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    img {
-      max-width: 100%;
-      border-radius: 12px;
     }
     h1 {
-      font-size: 28px;
+      text-align: center;
       color: #333;
     }
-    p {
-      font-size: 18px;
-      color: #555;
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+    .product {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 280px;
+      margin: 10px;
+      padding: 15px;
+      text-align: center;
+    }
+    .product img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .product h2 {
+      font-size: 20px;
+      color: #444;
+    }
+    .product p {
+      color: #666;
     }
     .btn {
-      display: inline-block;
       background-color: #ff9800;
       color: white;
-      padding: 12px 24px;
+      padding: 10px 20px;
       border: none;
-      border-radius: 8px;
-      font-size: 18px;
+      border-radius: 6px;
       cursor: pointer;
-      margin-top: 20px;
-      text-decoration: none;
+      margin-top: 10px;
     }
     .btn:hover {
-      background-color: #f57c00;
+      background-color: #e68a00;
+    }
+    .cart {
+      background-color: white;
+      padding: 15px;
+      margin-top: 30px;
+      border-radius: 10px;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>خلاط محمول USB</h1>
-    <img src="https://images.unsplash.com/photo-1586201375754-1120e7e04c8c" alt="خلاط محمول">
-    <p>
-      خلاط محمول يعمل على البطارية، مثالي للعصائر الطازجة أثناء التنقل. سهل الشحن والتنظيف.
-    </p>
-    <a href="#" class="btn">اطلب الآن</a>
+    <h1>منتجاتنا</h1>
+    <div class="products">
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1616627987939-d8dc86f8c3a9" alt="قلاية هوائية">
+        <h2>قلاية هوائية</h2>
+        <p>صحية وسريعة بدون زيت</p>
+        <button class="btn" onclick="addToCart('قلاية هوائية')">أضف للسلة</button>
+      </div>
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1583912268184-f98b5772e8c9" alt="ماكينة قهوة">
+        <h2>ماكينة قهوة</h2>
+        <p>تحضير سريع واحترافي للقهوة</p>
+        <button class="btn" onclick="addToCart('ماكينة قهوة')">أضف للسلة</button>
+      </div>
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1601050690290-364a4f1f6f0b" alt="مايكرويف">
+        <h2>مايكرويف</h2>
+        <p>تسخين سريع وسهل</p>
+        <button class="btn" onclick="addToCart('مايكرويف')">أضف للسلة</button>
+      </div>
+    </div>
+
+    <div class="cart">
+      <h2>السلة:</h2>
+      <ul id="cartList"></ul>
+    </div>
   </div>
+
+  <script>
+    const cartList = document.getElementById("cartList");
+    function addToCart(product) {
+      const li = document.createElement("li");
+      li.textContent = product;
+      cartList.appendChild(li);
+    }
+  </script>
 </body>
 </html>
